@@ -11,31 +11,41 @@ if __name__=="__main__":
 	square2 = classes.square(440, 80, 255, 0, 0)
 	square3 = classes.square(440, 80, 255, 0, 0)
 	myfont = pygame.font.SysFont("Comic Sans MS", 50)
-	# label = myfont.render("Comedy Shows", 1, (0,0,0))
-	# label2 = myfont.render("Band Shows", 1, (0,0,0))
-	# label3 = myfont.render("Dancing Shows", 1, (0,0,0))
 
-
-	# orderlabel = pygame.font.Font(None, 80)
-	# label = orderlabel.render("showbook", 1, (0, 0, 0), (255, 255, 255))
-
-	label = classes.label(80, "showbook", (255,255,0))
+	label = classes.label(80, "showbook")
+	label2 = classes.label(50, "Comedy Shows")
+	label3 = classes.label(50, "Band Shows")
+	label4 = classes.label(50, "Dancing Shows")
 	label.draw(scr,170, 100)
 
 	scr.blit(square.square, (100, 250))
 	scr.blit(square2.square, (100, 350))
 	scr.blit(square3.square, (100, 450))
-	# scr.blit(label, (200, 270))
-	# scr.blit(label2, (230, 370))
-	# scr.blit(label3, (200, 470))
+	label2.draw(scr, 200, 270)
+	label3.draw(scr, 230, 370)
+	label4.draw(scr, 200, 470)
+	x = True
+	y = False
+	z = False
 
 	while True:
 		ev = pygame.event.poll()
 		if ev.type == pygame.QUIT:
 			sys.exit()
 		if ev.type == pygame.MOUSEBUTTONDOWN:
-			x, y = ev.pos
-			if square.get_bounding_rect().collidepoint(x, y ):
-				print "clicked"
-		# scr.blit(label,(170,100))
+			x1, y = ev.pos
+			print x1, y
 		pygame.display.flip()
+
+		while x:
+			scr.fill((255,255,255))
+
+			pygame.display.flip()
+		while y:
+			scr.fill((255,255,255))
+
+			pygame.display.flip()
+		while z:
+			scr.fill((255,255,255))
+
+			pygame.display.flip()

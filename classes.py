@@ -12,12 +12,11 @@ class square(object):
 		self.square.fill((r,g,b))
 
 class label(object):
-	def __init__(self, size, txt, col):
+	def __init__(self, size, txt):
 		self.size=size
 		self.txt=txt
-		self.col=col
 		orderlabel = pygame.font.Font(None, size)
-		self.label = orderlabel.render(txt, 1, (0, 0, 0), (col))
+		self.label = orderlabel.render(txt, 1, (0, 0, 0))
 	def draw(self, scr, x, y):
 		self.x = x
 		self.y = y
