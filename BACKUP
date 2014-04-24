@@ -1,0 +1,92 @@
+import pygame
+import classes
+
+if __name__=="__main__":
+	pygame.init()
+	scr = pygame.display.set_mode((600,600))
+	scr.fill((255,255,255))
+
+
+	square = classes.square(440, 80, 255, 0, 0)
+	square2 = classes.square(440, 80, 255, 0, 0)
+	square3 = classes.square(440, 80, 255, 0, 0)
+	
+	myfont = pygame.font.SysFont("Comic Sans MS", 50)
+
+	label = classes.label(80, "showbook")
+	label2 = classes.label(50, "Comedy Shows")
+	label3 = classes.label(50, "Band Shows")
+	label4 = classes.label(50, "Dancing Shows")
+
+	label.draw(scr,170, 100)
+
+	scr.blit(square.square, (100, 250))
+	scr.blit(square2.square, (100, 350))
+	scr.blit(square3.square, (100, 450))
+
+	label2.draw(scr, 200, 270)
+	label3.draw(scr, 230, 370)
+	label4.draw(scr, 200, 470)
+
+	x = False
+	y = False
+	z = False
+	x1 = 0
+	y1 = 0
+
+	while True:
+		ev = pygame.event.poll()
+		if ev.type == pygame.QUIT:
+			sys.exit()
+		if ev.type == pygame.MOUSEBUTTONDOWN:
+			x1, y1 = ev.pos
+			print x1, y1
+		if x1>100 and y1>250 and x1<540 and y1<330:
+			print "comedy"
+			x1=0
+			y1=0
+			x=True
+		if x1>100 and x1<540 and y1>350 and y1<430 :
+			print "band"
+		if x1>100 and x1<540 and y1>450 and y1<530:
+			print "Dancing"
+
+		pygame.display.flip()
+
+		while x:
+			scr.fill((255,255,255))
+			labelback = classes.label(30, "Back")
+			squareback = classes.square(70, 40, 255, 0, 0)
+			scr.blit(squareback.square, (50, 50))
+			labelback.draw(scr, 60, 55)
+			ev = pygame.event.poll()
+			if ev.type == pygame.QUIT:
+				sys.exit()
+			if ev.type == pygame.MOUSEBUTTONDOWN:
+				x1, y1 = ev.pos
+				print x1, y1
+			if x1>50 and y1>50 and x1<120 and y1<90:
+				print "Back"
+				x1=0
+				y1=0
+				x=False
+				scr.fill((255,255,255))
+				label.draw(scr,170, 100)
+
+				scr.blit(square.square, (100, 250))
+				scr.blit(square2.square, (100, 350))
+				scr.blit(square3.square, (100, 450))
+
+				label2.draw(scr, 200, 270)
+				label3.draw(scr, 230, 370)
+				label4.draw(scr, 200, 470)
+
+			pygame.display.flip()
+		while y:
+			scr.fill((255,255,255))
+
+			pygame.display.flip()
+		while z:
+			scr.fill((255,255,255))
+
+			pygame.display.flip()
